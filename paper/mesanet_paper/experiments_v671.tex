@@ -1,0 +1,195 @@
+\section{Experiments}
+
+\subsection{Experimental Setup}
+
+\textbf{Datasets.}
+We evaluate continuous-sensor forecasting on HumanActivity, MHEALTH,
+OPPORTUNITY, PAMAP2, USC-HAD, and REALDISP
+\citep{rubanova2019latent,uci_mhealth,uci_opportunity,uci_pamap2,usc_had,uci_realdisp}. They span
+6--117 variables, compact physiological traces, long activity streams, and
+heterogeneous body placements (Table~\ref{tab:v665-data-main}). Released
+subjects define disjoint training, validation, and test partitions; all
+sessions of one subject remain in one partition. The main benchmark retains
+released timestamps and finite-value availability and does not inject an
+artificial observation mask. Activity labels and subject identifiers are never
+model inputs. Mean squared error (MSE) is the primary endpoint and mean
+absolute error (MAE) is the complementary endpoint, both evaluated on
+available future targets. The task
+is continuous sensor forecasting rather than activity recognition or clinical
+decision support.
+
+\input{generated/main_table_v665_datasets}
+
+For compact table headings, we abbreviate HumanActivity as HA, MHEALTH as MH,
+OPPORTUNITY as OPP, PAMAP2 as PAM, USC-HAD as USC, and REALDISP as REAL.
+
+\textbf{Baselines and protocol.}
+The complete benchmark includes APN, KAFNet, GraFITi, tPatchGNN, and PatchTST
+\citep{apn2026,kafnet2026,grafiti2024,tpatchgnn2024,nie2023patchtst}. For every
+method--dataset pair, six validation trials vary learning rate, hidden width,
+and dropout under the same optimizer and objective. Validation MSE, with
+MAE as tie-breaker, freezes one configuration before test evaluation. The
+search varies common optimization and capacity axes rather than
+architecture-specific components. The
+complete matrix is reported below. Independently, validation MSE with a
+validation-MAE tie-break freezes one public comparator per dataset. The same
+comparator is used for both test metrics and all five matched runs; test errors
+never determine its identity. No model or hyperparameter is reselected per
+run. Paired bootstrap intervals over the five optimization runs quantify
+run-to-run stability, not uncertainty over new subjects. Final-model component controls use three
+repeated runs on the four core datasets.
+
+\textbf{Implementation.}
+All models use Adam, at most 20 epochs, and the common forecasting objective
+$\mathrm{MSE}+0.5\mathrm{MAE}$. The six-trial search and run-5401 public
+confirmation use patience five; final MESANet and added run-5402--5405
+confirmations use patience six. MESANet uses four causal supports initialized
+at $\{0.5,1,2,4\}$ times the base patch width, DCT rank $R=\min(4,H)$, and
+fixed overlap $\rho=0.5$. Its validation-frozen width/dropout pairs for
+HA/MH/OPP/PAM/USC/REAL are $48/0$, $72/.05$, $64/.1$, $96/.05$, $32/.05$,
+and $144/.05$, respectively.
+Dataset dimensions, exact search spaces, and executable commands are in the
+supplement.
+
+\subsection{Main Results}
+
+\input{generated/main_table_v665_equal_hpo}
+
+Table~\ref{tab:v665-main} gives full method coverage after freezing each
+method's validation-selected configuration. It is the complete descriptive
+test matrix; it does not select the comparator used for repeated comparison.
+
+\input{generated/main_table_v671_validation_frozen}
+
+Table~\ref{tab:v671-validation-frozen} gives the validation-frozen repeated
+comparison. MESANet improves mean error in 9 of 12 metric cells and both
+metrics on four datasets. Six cells have paired bootstrap intervals over the
+five optimization runs above zero. The largest dual-metric gains occur on
+MHEALTH ($1.89\%$ MSE,
+$3.43\%$ MAE), OPPORTUNITY ($2.17\%$, $2.33\%$), and REALDISP ($1.28\%$,
+$2.84\%$); PAMAP2 adds smaller gains ($0.27\%$, $0.34\%$). Dagger-marked
+intervals are run-level stability checks for the frozen contrasts rather than
+population-level uncertainty statements.
+
+The two boundary datasets sharpen the scope. HumanActivity improves MAE by
+$1.19\%$ but trails KAFNet MSE by $0.85\%$, indicating that waveform-aware
+forecasting reduces typical error without improving the largest deviations.
+On USC-HAD, PatchTST remains better by $4.70\%$ MSE and $3.24\%$ MAE. Thus,
+the gains are dataset dependent: the experiments do not establish a universal
+advantage over compact regular-patch representations or identify one dataset
+property that predicts the gain.
+
+\subsection{Ablation Studies}
+\label{sec:ablation}
+
+\input{generated/main_table_v671_final_controls}
+
+Table~\ref{tab:v671-controls} evaluates the fixed-$\rho$ implementation rather than
+an earlier prototype. A parameter-matched single-coordinate model increases
+the geometric mean of paired run--dataset MSE/MAE ratios by
+$4.51\%/2.47\%$, consistent with a dual-coordinate benefit beyond parameter
+count alone. Removing the ordered waveform coordinate causes $4.23\%/2.06\%$
+average degradation. The complete model wins MSE on two datasets and MAE on
+two, but MHEALTH is the only dual-metric win; the waveform contribution is
+therefore regime dependent rather than uniformly beneficial. Removing the
+multiresolution coordinate increases MSE on all four datasets and produces
+$1.43\%/1.01\%$ geometric-mean degradation. Removing affine anchoring costs
+$0.90\%/2.46\%$ under the same aggregation and degrades both metrics on three datasets;
+OPPORTUNITY is the boundary case. Thus, canonicalization and restoration are
+predictive components of the evaluated backbone.
+
+The deployed model fixes $\rho=0.5$; learned- and endpoint-overlap variants are
+reported only as sensitivity controls in the supplement. A parameter-matched
+random orthonormal basis degrades MSE/MAE by $2.50\%/2.67\%$ and loses on all
+four datasets. This supports the ordered DCT coordinate relative to the
+matched random-basis control, rather than attributing the result to arbitrary
+two-head capacity. Sharing variable transfer is nearly tied
+($0.37\%/0.09\%$ aggregate degradation with mixed per-dataset wins); these
+three-run controls provide no evidence that separate transfer parameters
+improve accuracy.
+
+\subsection{Parameter Sensitivity}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/final/mesa_fig4_v675_method_sensitivity.png}
+\caption{Method-parameter sensitivity on four core datasets. Validation errors
+are macro-normalized by the deployed $\rho=0.5$ and $K=4$ setting.}
+\label{fig:v675-method}
+\end{figure}
+
+Figure~\ref{fig:v675-method} reports one-run validation sensitivity for the
+two parameters that directly control
+the proposed operator: DCT-subspace overlap $\rho$ and the number of causal
+support scales $K$. Varying $\rho$ over $[0,1]$ changes macro MSE/MAE by at
+most $0.36\%/0.17\%$. Scale count is more
+consequential: relative to $K=4$, macro deviations range from $-4.87\%$ to
+$+2.71\%$ MSE and $-1.08\%$ to $+3.09\%$ MAE. No count dominates every
+dataset: $K=6$ improves both metrics on HumanActivity and MHEALTH, improves
+PAMAP2 MSE while slightly worsening its MAE, and does not help OPPORTUNITY,
+whose best validation point is $K=3$. We therefore retain the predeclared
+shared $K=4$ rather than adapting $K$ to each test dataset. Exact one-run
+validation errors are reported in the supplement.
+
+\subsection{Efficiency}
+
+\input{generated/main_table_v665_efficiency}
+
+Table~\ref{tab:v665-efficiency} compares parameter count, multiply-accumulate
+operations (MACs), optimizer-step
+peak memory, training latency, and inference latency on one RTX 4080. MESANet
+uses 1.733M parameters and 0.305G MACs. Its
+23.28-ms training step and 11.24-ms inference step are $2.08\times$ and
+$2.03\times$ faster than GraFITi, while its 0.151-GB peak memory is
+$7.89\times$ lower. Relative to tPatchGNN it is $3.48\times/2.89\times$
+faster and uses $20.65\times$ less peak memory.
+PatchTST remains the lowest-cost competitive model. MESANet therefore trades
+higher cost than lightweight regular patches for lower cost than the two dense
+irregular graph baselines profiled here.
+
+\subsection{Subject and Observation-Mechanism Stress Tests}
+
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{3.0pt}
+\caption{Subject-transfer and observation-mask stress results.}
+\label{tab:v671-stress}
+\begin{tabular}{@{}p{0.34\columnwidth}cc@{}}
+\toprule
+Protocol & Gain MSE/MAE & Wins MSE/MAE \\
+\midrule
+LOSO--MH & $+6.76/+7.08\%$ & 10/10; 10/10 \\
+LOSO--USC & $+3.96/+4.19\%$ & 13/14; 14/14 \\
+Group async. & $+2.98/+3.42\%$ & 3/3; 3/3 \\
+Matched MCAR & $+7.78/+10.13\%$ & 3/3; 3/3 \\
+Matched block & $+0.27/+2.55\%$ & 2/3; 3/3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:v671-stress} separates two forms of distribution shift from the
+main optimization-repeat benchmark. Leave-one-subject-out (LOSO) gains are
+geometric means over 10
+MHEALTH and 14 USC-HAD subjects; mask gains are arithmetic means over three
+datasets. In strict LOSO, every test subject is
+excluded from training and validation. Against the predeclared PatchTST
+comparator, MESANet improves geometric MSE/MAE by $5.14\%/5.41\%$ over all 24
+subjects, with 23/24 and 24/24 wins. The mean log-ratio bootstrap intervals
+exclude zero on both MHEALTH and USC-HAD; fold-level errors and intervals are
+reported in the supplement. This is evidence of subject transfer, not an
+additional optimization-seed claim.
+
+The one-run mask suite replaces released availability with group-asynchronous,
+density-matched missing-completely-at-random (MCAR), or density-matched block
+masks on MHEALTH, OPPORTUNITY, and PAMAP2. HumanActivity is excluded because
+its released loader does not apply these mask-protocol controls. MESANet wins
+7/9 MSE and 9/9 MAE cells. The MSE reversals are PAMAP2 under group
+asynchrony ($-0.08\%$) and OPPORTUNITY under block removal ($-2.72\%$), while
+MAE remains positive. The latter is a boundary under long contiguous gaps in
+this run.
+
+Across these experiments, the strongest repeated evidence concerns the frozen
+main contrasts and the four-dataset component controls. LOSO measures variation
+over held-out subjects with one optimization run per fold, and the mask suite
+is a one-run mechanism stress test. They define transfer and missingness
+boundaries rather than extend the five-run paired optimization-run comparison.

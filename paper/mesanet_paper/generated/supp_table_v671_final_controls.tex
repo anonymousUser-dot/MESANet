@@ -1,0 +1,23 @@
+\begin{table}[H]
+\centering
+\setlength{\tabcolsep}{2.4pt}
+\caption{Three-run final-model controls on four core datasets. Cells are run
+means; average degradation is the geometric mean of 12 paired
+control/MESANet run ratios. Positive values favor MESANet.}
+\label{tab:v671-controls-supp}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l*{4}{rr}rrrr@{}}
+\toprule
+& \multicolumn{2}{c}{HA} & \multicolumn{2}{c}{MH} & \multicolumn{2}{c}{OPP} & \multicolumn{2}{c}{PAM} & \multicolumn{2}{c}{Avg. deg.} & \multicolumn{2}{c}{Full wins} \\
+Variant & MSE & MAE & MSE & MAE & MSE & MAE & MSE & MAE & $\Delta$MSE & $\Delta$MAE & MSE & MAE \\
+\midrule
+MESANet ($\rho=0.5$) & 0.0455 & 0.1136 & 0.5258 & 0.3896 & 0.6931 & 0.5481 & 0.8442 & 0.4586 & -- & -- & -- & -- \\
+single coordinate (matched) & 0.0453 & 0.1152 & 0.6163 & 0.4210 & 0.7023 & 0.5484 & 0.8506 & 0.4614 & +4.51\% & +2.47\% & 3/4 & 4/4 \\
+w/o waveform coordinate & 0.0453 & 0.1140 & 0.6207 & 0.4241 & 0.6965 & 0.5461 & 0.8430 & 0.4576 & +4.23\% & +2.06\% & 2/4 & 2/4 \\
+w/o multiresolution & 0.0460 & 0.1145 & 0.5443 & 0.4009 & 0.6975 & 0.5484 & 0.8476 & 0.4605 & +1.43\% & +1.01\% & 4/4 & 4/4 \\
+w/o affine anchor & 0.0455 & 0.1193 & 0.5515 & 0.4069 & 0.6813 & 0.5415 & 0.8475 & 0.4669 & +0.90\% & +2.46\% & 3/4 & 3/4 \\
+shared transfer (matched) & 0.0459 & 0.1145 & 0.5237 & 0.3888 & 0.6980 & 0.5468 & 0.8467 & 0.4589 & +0.37\% & +0.09\% & 3/4 & 2/4 \\
+random basis (matched) & 0.0473 & 0.1210 & 0.5399 & 0.3998 & 0.6999 & 0.5499 & 0.8636 & 0.4648 & +2.50\% & +2.67\% & 4/4 & 4/4 \\
+\bottomrule
+\end{tabular}}
+\end{table}

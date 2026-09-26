@@ -1,0 +1,53 @@
+﻿\documentclass[letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[hyphens]{url}
+\urlstyle{rm}
+\def\UrlFont{\rm}
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{placeins}
+\frenchspacing
+
+\setcounter{secnumdepth}{2}
+\newtheorem{proposition}{Proposition}
+
+\title{MESANet: Affine-Anchored Dual-Coordinate Forecasting for Wearable Irregular Time Series}
+\author{Anonymous Submission}
+\date{}
+
+\begin{document}
+\maketitle
+
+\input{frontmatter_v671_dct_dual}
+\input{related_work_v665}
+\input{method_v671_dct_dual}
+\input{experiments_v671}
+\FloatBarrier
+
+\section{Conclusion}
+We presented MESANet, an end-to-end wearable IMTS backbone that preserves an
+affine-anchored multiresolution support coordinate and an ordered waveform
+coordinate until bounded DCT-domain forecast formation. A validation-frozen
+five-run comparison favors MESANet in mean error for 9 of 12 metric cells and
+on both metrics for four datasets; six cells have paired bootstrap intervals
+over optimization runs favoring MESANet. Parameter-matched controls support the dual-coordinate
+factorization, multiresolution support, and ordered DCT basis, while waveform
+utility is regime dependent and the controls do not show an accuracy benefit
+from separate transfer parameters. The evidence supports dual-coordinate forecasting in several wearable
+IMTS regimes, with HumanActivity MSE, USC-HAD, computation, and long-block
+missingness remaining explicit boundaries.
+
+\clearpage
+\bibliographystyle{plainnat}
+\bibliography{mesanet_references}
+\end{document}

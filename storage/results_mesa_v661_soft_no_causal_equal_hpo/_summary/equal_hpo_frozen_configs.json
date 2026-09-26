@@ -1,0 +1,34 @@
+{
+  "HumanActivity": {
+    "MESANet": {
+      "name": "width_3half",
+      "lr_mult": 1.0,
+      "width_mult": 1.5,
+      "dropout": null
+    }
+  },
+  "MHEALTH": {
+    "MESANet": {
+      "name": "width_3half",
+      "lr_mult": 1.0,
+      "width_mult": 1.5,
+      "dropout": null
+    }
+  },
+  "OPPORTUNITY": {
+    "MESANet": {
+      "name": "dropout_0p1",
+      "lr_mult": 1.0,
+      "width_mult": 1.0,
+      "dropout": 0.1
+    }
+  },
+  "PAMAP2": {
+    "MESANet": {
+      "name": "width_3half",
+      "lr_mult": 1.0,
+      "width_mult": 1.5,
+      "dropout": null
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "USCHAD": {
+    "MESANet": {
+      "name": "lr_double",
+      "lr_mult": 2.0,
+      "width_mult": 1.0,
+      "dropout": null
+    }
+  },
+  "REALDISP": {
+    "MESANet": {
+      "name": "width_3half",
+      "lr_mult": 1.0,
+      "width_mult": 1.5,
+      "dropout": null
+    }
+  }
+}

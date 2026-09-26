@@ -1,0 +1,2 @@
+family,dataset,model,variant,role,model_id,MSE,MAE,RMSE,public_best_model,public_best_MSE,public_best_MAE,gain_vs_public_best_MSE_pct,gain_vs_public_best_MAE_pct,gain_vs_mesa_main_MSE_pct,gain_vs_mesa_main_MAE_pct
+ablation,MHEALTH,MESANet,mesanet_fixed_dual_coordinate,frozen affine-anchored dual-coordinate MESANet with fixed half-projection separation,mesa_v672_final_loso_MHEALTH_ablation_mesanet_fixed_dual_coordinate_loso_subject1_mw0p0_e8_r5401,0.9031385183334351,0.45944157242774963,,,,,,,,

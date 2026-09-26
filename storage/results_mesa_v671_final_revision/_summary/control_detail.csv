@@ -1,0 +1,9 @@
+control,dataset,runs,control_degradation_MSE_percent,control_degradation_MAE_percent,full_MSE_win,full_MAE_win
+shared_transfer_matched,HumanActivity,3,0.86922190679255,0.7700129070150163,True,True
+shared_transfer_matched,MHEALTH,3,-0.40261737634128547,-0.22191739988535186,False,False
+shared_transfer_matched,OPPORTUNITY,3,0.7131070826318808,-0.23200943310789368,True,False
+shared_transfer_matched,PAMAP2,3,0.29873495174812525,0.05767117426564994,True,True
+random_basis,HumanActivity,3,4.035880181498763,6.499711170700628,True,True
+random_basis,MHEALTH,3,2.685651000593081,2.614646780575902,True,True
+random_basis,OPPORTUNITY,3,0.9803534270727887,0.32876569691013824,True,True
+random_basis,PAMAP2,3,2.3053826349732853,1.347254528297448,True,True

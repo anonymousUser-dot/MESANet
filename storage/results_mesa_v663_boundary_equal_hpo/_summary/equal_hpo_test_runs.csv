@@ -1,0 +1,3 @@
+dataset,model,run,selected_trial,MSE,MAE,model_id
+USCHAD,MESANet,5401,lr_double,0.6503245234489441,0.40563899278640747,mesa_v663_boundary_equal_hpo_confirm_USCHAD_mesanet_lr_double_r5401
+REALDISP,MESANet,5401,width_3half,0.5925038456916809,0.4394530653953552,mesa_v663_boundary_equal_hpo_confirm_REALDISP_mesanet_width_3half_r5401

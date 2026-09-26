@@ -1,0 +1,71 @@
+{
+  "created_utc": "2026-07-17T07:21:33.598844+00:00",
+  "selection_stage": "validation only",
+  "primary_selection_metric": "validation MSE",
+  "tie_breaker": "validation MAE",
+  "same_comparator_for_test_MSE_and_test_MAE": true,
+  "source_files": [
+    {
+      "path": "storage/results_mesa_equal_hpo/_summary/equal_hpo_validation_trials.csv",
+      "sha256": "3dd19ffc0d9a6f90497e8df6f36bb071efae5b67a899007d04b3a5e68f3ed294"
+    },
+    {
+      "path": "storage/results_mesa_v664_uschad_public_equal_hpo/_summary/equal_hpo_validation_trials.csv",
+      "sha256": "b3734d403ea749ea429f8b1c066d6f58d51cd25e121dbf481f7d71102c82d730"
+    },
+    {
+      "path": "storage/results_mesa_v664_realdisp_public_equal_hpo/_summary/equal_hpo_validation_trials.csv",
+      "sha256": "d603f5765fea03a0d37b069d99e07fec0825a1807c71aaba3fe9878baeee2f06"
+    }
+  ],
+  "comparators": [
+    {
+      "dataset": "HumanActivity",
+      "public_model": "KAFNet",
+      "trial": "lr_double",
+      "validation_MSE": 0.043129049241542816,
+      "validation_MAE": 0.11912669241428375,
+      "selection_rule": "minimum validation MSE; validation MAE tie-break"
+    },
+    {
+      "dataset": "MHEALTH",
+      "public_model": "PatchTST",
+      "trial": "lr_double",
+      "validation_MSE": 0.5657627582550049,
+      "validation_MAE": 0.3692704439163208,
+      "selection_rule": "minimum validation MSE; validation MAE tie-break"
+    },
+    {
+      "dataset": "OPPORTUNITY",
+      "public_model": "tPatchGNN",
+      "trial": "lr_double",
+      "validation_MSE": 0.5262359380722046,
+      "validation_MAE": 0.48370733857154846,
+      "selection_rule": "minimum validation MSE; validation MAE tie-break"
+    },
+    {
+      "dataset": "PAMAP2",
+      "public_model": "GraFITi",
+      "trial": "dropout_0p1",
+      "validation_MSE": 0.5061834454536438,
+      "validation_MAE": 0.3799787163734436,
+      "selection_rule": "minimum validation MSE; validation MAE tie-break"
+    },
+    {
+      "dataset": "USCHAD",
+      "public_model": "PatchTST",
+      "trial": "lr_double",
+      "validation_MSE": 0.9485296010971069,
+      "validation_MAE": 0.4834504723548889,
+      "selection_rule": "minimum validation MSE; validation MAE tie-break"
+    },
+    {
+      "dataset": "REALDISP",
+      "public_model": "PatchTST",
+      "trial": "default",
+      "validation_MSE": 0.5448963642120361,
+      "validation_MAE": 0.39162230491638184,
+      "selection_rule": "minimum validation MSE; validation MAE tie-break"
+    }
+  ]
+}

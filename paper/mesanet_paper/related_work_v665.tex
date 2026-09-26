@@ -1,0 +1,37 @@
+\section{Related Work}
+
+\textbf{Irregular time-series forecasting.}
+Recurrent imputation and decay models handle missing observations explicitly
+\citep{che2018grud,cao2018brits}; latent ordinary differential equations
+(ODEs), neural controlled differential equations, continuous recurrent units,
+and time-aware attention instead model
+continuous-time evolution~\citep{rubanova2019latent,kidger2020neuralcde,
+shukla2021mtan,cru2022}. Raindrop and GraFITi use graph structure to transfer
+information across variables or observations~\citep{raindrop2022,grafiti2024}.
+These models establish timestamps, masks, and variable dependency as central
+IMTS inputs. MESANet focuses on the earlier representation step: preserving
+support and ordered motion as complementary patch coordinates before their
+forecasts are combined.
+
+\textbf{Patch and multiscale forecasting.}
+PatchTST, TimesNet, iTransformer, TimeMixer, and Pathformer show that patch
+tokens and multiscale pathways are effective on regular series
+\citep{nie2023patchtst,timesnet2023,liu2024itransformer,timemixer2024,
+pathformer2024}. For IMTS, tPatchGNN learns transformable patches, APN learns
+adaptive patch aggregation, and KAFNet introduces canonical alignment
+\citep{tpatchgnn2024,apn2026,kafnet2026}. MESANet differs by maintaining a
+bounded support-derived level coordinate and an ordered waveform coordinate
+until forecast formation, then controlling their overlap in the forecast
+domain. The public comparison therefore includes these direct patch
+families together with GraFITi and PatchTST.
+
+\textbf{Wearable representation and normalization.}
+Wearable models commonly exploit local motion and cross-sensor structure for
+activity recognition~\citep{ordonez2016deepconv,abedin2021attend,
+zhou2022tinyhar}; our target is continuous future sensor values and does not
+use activity or subject labels. Reversible instance normalization (RevIN)
+demonstrates the value of reversible instance coordinates under distribution
+shift~\citep{kim2022revin}. MESANet
+extends the reversible principle to masked sample--variable histories and
+couples it with irregular support and waveform coordinates inside a forecasting
+backbone.

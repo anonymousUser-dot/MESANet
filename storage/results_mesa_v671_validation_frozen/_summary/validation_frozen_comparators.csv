@@ -1,0 +1,7 @@
+dataset,public_model,trial,validation_MSE,validation_MAE,selection_rule
+HumanActivity,KAFNet,lr_double,0.043129049241542816,0.11912669241428375,minimum validation MSE; validation MAE tie-break
+MHEALTH,PatchTST,lr_double,0.5657627582550049,0.3692704439163208,minimum validation MSE; validation MAE tie-break
+OPPORTUNITY,tPatchGNN,lr_double,0.5262359380722046,0.48370733857154846,minimum validation MSE; validation MAE tie-break
+PAMAP2,GraFITi,dropout_0p1,0.5061834454536438,0.3799787163734436,minimum validation MSE; validation MAE tie-break
+USCHAD,PatchTST,lr_double,0.9485296010971069,0.4834504723548889,minimum validation MSE; validation MAE tie-break
+REALDISP,PatchTST,default,0.5448963642120361,0.39162230491638184,minimum validation MSE; validation MAE tie-break

@@ -1,0 +1,19 @@
+\begin{table}[H]
+\centering
+\setlength{\tabcolsep}{4pt}
+\caption{Validation-selected trial for every method--dataset pair. Trials
+change only learning-rate multiplier, hidden-width multiplier, or dropout.}
+\label{tab:v665-selected}
+\begin{tabular}{@{}lllllll@{}}
+\toprule
+Dataset & APN & KAFNet & GraFITi & tPatchGNN & PatchTST & MESANet \\
+\midrule
+HumanActivity & lr$\times2$ & lr$\times2$ & lr$\times2$ & lr$\times2$ & lr$\times2$ & width$\times1.5$ \\
+MHEALTH & width$\times1.5$ & width$\times0.5$ & width$\times1.5$ & lr$\times0.5$ & lr$\times2$ & width$\times1.5$ \\
+OPPORTUNITY & lr$\times2$ & lr$\times2$ & lr$\times2$ & lr$\times2$ & width$\times1.5$ & dropout .1 \\
+PAMAP2 & width$\times0.5$ & width$\times1.5$ & dropout .1 & default & width$\times0.5$ & width$\times1.5$ \\
+USC-HAD & lr$\times2$ & width$\times0.5$ & default & default & lr$\times2$ & lr$\times2$ \\
+REALDISP & width$\times0.5$ & width$\times0.5$ & lr$\times2$ & lr$\times2$ & default & width$\times1.5$ \\
+\bottomrule
+\end{tabular}
+\end{table}

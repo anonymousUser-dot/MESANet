@@ -1,0 +1,3 @@
+control,paired_cells,control_geometric_MSE_degradation_percent,control_geometric_MAE_degradation_percent,full_MSE_dataset_wins,full_MAE_dataset_wins,full_dual_dataset_wins,decision
+shared_transfer_matched,12,0.36840243560058994,0.09261160713702754,3,2,2,NOT_SUPPORTED
+random_basis,12,2.4960359346316796,2.6712407880206124,4,4,4,SUPPORTED

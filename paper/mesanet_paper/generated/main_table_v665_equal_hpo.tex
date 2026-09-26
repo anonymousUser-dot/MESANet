@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\setlength{\tabcolsep}{2.35pt}
+\caption{Run-5401 validation-frozen wearable IMTS benchmark. Public rows use
+the shared six-trial search; MESANet uses its final frozen configuration.
+Lower is better; best results are bold and second-best results are underlined.}
+\label{tab:v665-main}
+\begin{tabular}{@{}l*{12}{r}@{}}
+\toprule
+\multirow{2}{*}{Method} & \multicolumn{2}{c}{HA} & \multicolumn{2}{c}{MH}
+& \multicolumn{2}{c}{OPP} & \multicolumn{2}{c}{PAM}
+& \multicolumn{2}{c}{USC} & \multicolumn{2}{c}{REAL} \\
+& MSE & MAE & MSE & MAE & MSE & MAE & MSE & MAE & MSE & MAE & MSE & MAE \\
+\midrule
+APN       & 0.0549 & 0.1381 & 0.7049 & 0.4789 & 0.8362 & 0.6387 & 0.8886 & 0.5037 & 0.7204 & 0.4384 & 0.8480 & 0.5594 \\
+KAFNet    & \textbf{0.0450} & \underline{0.1156} & 0.7019 & 0.4734 & 0.7921 & 0.6057 & 0.8696 & 0.5000 & 0.7193 & 0.4360 & 0.7774 & 0.5441 \\
+GraFITi   & 0.0459 & 0.1193 & 0.6786 & 0.4651 & 0.7404 & 0.5881 & \underline{0.8445} & \underline{0.4573} & 0.7189 & 0.4336 & \underline{0.6128} & \underline{0.4482} \\
+tPatchGNN & 0.0462 & 0.1199 & 0.6630 & 0.4479 & \underline{0.7138} & 0.5652 & 0.8605 & 0.4697 & 0.7254 & 0.4444 & 0.7410 & 0.4860 \\
+PatchTST  & 0.0836 & 0.1889 & \underline{0.5323} & \underline{0.4012} & 0.7174 & \underline{0.5575} & 0.8501 & 0.4630 & \textbf{0.6168} & \textbf{0.3903} & \textbf{0.6029} & 0.4540 \\
+\textbf{MESANet} & \underline{0.0454} & \textbf{0.1138} & \textbf{0.5282} & \textbf{0.3908} & \textbf{0.6865} & \textbf{0.5517} & \textbf{0.8416} & \textbf{0.4567} & \underline{0.6493} & \underline{0.4051} & 0.6139 & \textbf{0.4314} \\
+\bottomrule
+\end{tabular}
+\end{table*}

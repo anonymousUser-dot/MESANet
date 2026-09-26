@@ -1,0 +1,9 @@
+{
+  "statistical_unit": "held-out released subject",
+  "optimization_runs_per_subject": 1,
+  "comparator": "PatchTST",
+  "comparator_selection": "predeclared from the validation-only main benchmark",
+  "paired_optimization_run": 5401,
+  "protocol": "eight-epoch MSE-only strict-LOSO stress test",
+  "claim_scope": "supplementary subject-transfer evidence, not the main repeated benchmark"
+}

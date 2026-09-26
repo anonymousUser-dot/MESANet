@@ -1,0 +1,34 @@
+{
+  "USCHAD": {
+    "APN": {
+      "name": "lr_double",
+      "lr_mult": 2.0,
+      "width_mult": 1.0,
+      "dropout": null
+    },
+    "KAFNet": {
+      "name": "width_half",
+      "lr_mult": 1.0,
+      "width_mult": 0.5,
+      "dropout": null
+    },
+    "GraFITi": {
+      "name": "default",
+      "lr_mult": 1.0,
+      "width_mult": 1.0,
+      "dropout": null
+    },
+    "tPatchGNN": {
+      "name": "default",
+      "lr_mult": 1.0,
+      "width_mult": 1.0,
+      "dropout": null
+    },
+    "PatchTST": {
+      "name": "lr_double",
+      "lr_mult": 2.0,
+      "width_mult": 1.0,
+      "dropout": null
+    }
+  }
+}

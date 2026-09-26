@@ -1,0 +1,7 @@
+{
+  "registered_rule": "positive paired geometric MSE and MAE gains plus at least 3/4 dataset wins for each metric",
+  "decisions": {
+    "shared_transfer_matched": "NOT_SUPPORTED",
+    "random_basis": "SUPPORTED"
+  }
+}

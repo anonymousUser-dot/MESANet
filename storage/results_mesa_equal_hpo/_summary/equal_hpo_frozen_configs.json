@@ -1,0 +1,154 @@
+﻿{
+    "HumanActivity":  {
+                          "APN":  {
+                                      "name":  "lr_double",
+                                      "lr_mult":  2.0,
+                                      "width_mult":  1.0,
+                                      "dropout":  null
+                                  },
+                          "KAFNet":  {
+                                         "name":  "lr_double",
+                                         "lr_mult":  2.0,
+                                         "width_mult":  1.0,
+                                         "dropout":  null
+                                     },
+                          "GraFITi":  {
+                                          "name":  "lr_double",
+                                          "lr_mult":  2.0,
+                                          "width_mult":  1.0,
+                                          "dropout":  null
+                                      },
+                          "tPatchGNN":  {
+                                            "name":  "lr_double",
+                                            "lr_mult":  2.0,
+                                            "width_mult":  1.0,
+                                            "dropout":  null
+                                        },
+                          "PatchTST":  {
+                                           "name":  "lr_double",
+                                           "lr_mult":  2.0,
+                                           "width_mult":  1.0,
+                                           "dropout":  null
+                                       },
+                          "MESANet":  {
+                                          "name":  "lr_half",
+                                          "lr_mult":  0.5,
+                                          "width_mult":  1.0,
+                                          "dropout":  null
+                                      }
+                      },
+    "MHEALTH":  {
+                    "APN":  {
+                                "name":  "width_3half",
+                                "lr_mult":  1.0,
+                                "width_mult":  1.5,
+                                "dropout":  null
+                            },
+                    "KAFNet":  {
+                                   "name":  "width_half",
+                                   "lr_mult":  1.0,
+                                   "width_mult":  0.5,
+                                   "dropout":  null
+                               },
+                    "GraFITi":  {
+                                    "name":  "width_3half",
+                                    "lr_mult":  1.0,
+                                    "width_mult":  1.5,
+                                    "dropout":  null
+                                },
+                    "tPatchGNN":  {
+                                      "name":  "lr_half",
+                                      "lr_mult":  0.5,
+                                      "width_mult":  1.0,
+                                      "dropout":  null
+                                  },
+                    "PatchTST":  {
+                                     "name":  "lr_double",
+                                     "lr_mult":  2.0,
+                                     "width_mult":  1.0,
+                                     "dropout":  null
+                                 },
+                    "MESANet":  {
+                                    "name":  "default",
+                                    "lr_mult":  1.0,
+                                    "width_mult":  1.0,
+                                    "dropout":  null
+                                }
+                },
+    "OPPORTUNITY":  {
+                        "APN":  {
+                                    "name":  "lr_double",
+                                    "lr_mult":  2.0,
+                                    "width_mult":  1.0,
+                                    "dropout":  null
+                                },
+                        "KAFNet":  {
+                                       "name":  "lr_double",
+                                       "lr_mult":  2.0,
+                                       "width_mult":  1.0,
+                                       "dropout":  null
+                                   },
+                        "GraFITi":  {
+                                        "name":  "lr_double",
+                                        "lr_mult":  2.0,
+                                        "width_mult":  1.0,
+                                        "dropout":  null
+                                    },
+                        "tPatchGNN":  {
+                                          "name":  "lr_double",
+                                          "lr_mult":  2.0,
+                                          "width_mult":  1.0,
+                                          "dropout":  null
+                                      },
+                        "PatchTST":  {
+                                         "name":  "width_3half",
+                                         "lr_mult":  1.0,
+                                         "width_mult":  1.5,
+                                         "dropout":  null
+                                     },
+                        "MESANet":  {
+                                        "name":  "lr_double",
+                                        "lr_mult":  2.0,
+                                        "width_mult":  1.0,
+                                        "dropout":  null
+                                    }
+                    },
+    "PAMAP2":  {
+                   "APN":  {
+                               "name":  "width_half",
+                               "lr_mult":  1.0,
+                               "width_mult":  0.5,
+                               "dropout":  null
+                           },
+                   "KAFNet":  {
+                                  "name":  "width_3half",
+                                  "lr_mult":  1.0,
+                                  "width_mult":  1.5,
+                                  "dropout":  null
+                              },
+                   "GraFITi":  {
+                                   "name":  "dropout_0p1",
+                                   "lr_mult":  1.0,
+                                   "width_mult":  1.0,
+                                   "dropout":  0.1
+                               },
+                   "tPatchGNN":  {
+                                     "name":  "default",
+                                     "lr_mult":  1.0,
+                                     "width_mult":  1.0,
+                                     "dropout":  null
+                                 },
+                   "PatchTST":  {
+                                    "name":  "width_half",
+                                    "lr_mult":  1.0,
+                                    "width_mult":  0.5,
+                                    "dropout":  null
+                                },
+                   "MESANet":  {
+                                   "name":  "lr_half",
+                                   "lr_mult":  0.5,
+                                   "width_mult":  1.0,
+                                   "dropout":  null
+                               }
+               }
+}
